@@ -1,0 +1,65 @@
+<html>
+
+<head>
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Qahiri&display=swap" rel="stylesheet">
+<script type="text/javascript" src="scripts.js"></script>
+<link rel="stylesheet" href="styles.css">
+
+<body>
+    <div class="calculadora">
+        <div class="topo">
+            <div class="energia_solar"></div>
+            <div class="marca_calculadora">Kelvin</div>
+        </div>
+
+        <div id="visor">
+            0123456789
+        </div>
+        <div class="controles">
+            <table class="botoes">
+                <tr>
+                    <td><button id="on_ce" onclick="ClearDisplay(), ClearVariables()">ON<br>CE</button></td>
+                    <td class="acima_memoria">MRC<button class="memoria"></button></td>
+                    <td class="acima_memoria">M-<button class="memoria"></button></td>
+                    <td class="acima_memoria">M+<button class="memoria"></button></td>
+                </tr>
+                <tr>
+                    <td><button id="off">OFF</button></td>
+                    <td><button>√</button></td>
+                    <td><button>%</button></td>
+                    <td><button onclick="SendOperation('/')">÷</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="PutNumberOnDisplay(7)">7</button></td>
+                    <td><button onclick="PutNumberOnDisplay(8)">8</button></td>
+                    <td><button onclick="PutNumberOnDisplay(9)">9</button></td>
+                    <td><button onclick="SendOperation('*')">x</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="PutNumberOnDisplay(4)">4</button></td>
+                    <td><button onclick="PutNumberOnDisplay(5)">5</button></td>
+                    <td><button onclick="PutNumberOnDisplay(6)">6</button></td>
+                    <td><button onclick="SendOperation('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="PutNumberOnDisplay(1)">1</button></td>
+                    <td><button onclick="PutNumberOnDisplay(2)">2</button></td>
+                    <td><button onclick="PutNumberOnDisplay(3)">3</button></td>
+                    <td rowspan="2"><button id="soma" onclick="SendOperation('+')">+</button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="PutNumberOnDisplay(0)">0</button></td>
+                    <td><button onclick="PutNumberOnDisplay('.')">.</button></td>
+                    <td><button onclick="CalculateResult()">=</button></td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
