@@ -4,10 +4,15 @@ var operation = null
 var result = null
 var flagInsertingSecondNumber = false
 var powerOn = false;
+var dotCounter = 0;
 
 
 function DisplayNumber(number) {
     if(!powerOn) return
+
+    if (dotCounter > 0 && number == ".") {
+        return
+    }
 
     var displayedNumbers = document.getElementById("visor").innerHTML
     if(displayedNumbers == "Err" || displayedNumbers == "mto grande =(" || displayedNumbers == "0") {
@@ -20,6 +25,11 @@ function DisplayNumber(number) {
         ClearDisplay()
         flagInsertingSecondNumber = true
     }
+
+    if (number == ".") {
+        dotCounter++
+    }
+
     document.getElementById("visor").innerHTML += number
 }
 
@@ -38,7 +48,8 @@ function SendOperation(operation) {
 
 
 function CalculateResult() {
-    if(!powerOn) return
+    if(!powerOn || firstNumber == null) return
+    
     secondNumber = document.getElementById("visor").innerHTML
 
     try {
@@ -68,6 +79,7 @@ function ClearVariables() {
     operation = null
     result = null
     flagInsertingSecondNumber = false
+    dotCounter = 0
 }
 
 function PowerOn() {
