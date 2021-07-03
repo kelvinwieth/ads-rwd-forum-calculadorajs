@@ -3,11 +3,16 @@ var secondNumber = null
 var operation = null
 var result = null
 var flagInsertingSecondNumber = false
+var powerOn = false;
 
 
 function DisplayNumber(number) {
+    if(!powerOn) return
+
     var displayedNumbers = document.getElementById("visor").innerHTML
-    if(displayedNumbers == "Err" || displayedNumbers == "mto grande =(") ClearDisplay()
+    if(displayedNumbers == "Err" || displayedNumbers == "mto grande =(" || displayedNumbers == "0") {
+            ClearDisplay()
+        }
 
     if(displayedNumbers.length > 9) return
 
@@ -20,17 +25,20 @@ function DisplayNumber(number) {
 
 
 function ClearDisplay() {
+    if(!powerOn) return
     document.getElementById("visor").innerHTML = ""
 }
 
 
 function SendOperation(operation) {
+    if(!powerOn) return
     firstNumber = document.getElementById("visor").innerHTML
     this.operation = operation
 }
 
 
 function CalculateResult() {
+    if(!powerOn) return
     secondNumber = document.getElementById("visor").innerHTML
 
     try {
@@ -54,9 +62,23 @@ function CalculateResult() {
 
 
 function ClearVariables() {
+    if(!powerOn) return
     firstNumber = null
     secondNumber = null
     operation = null
     result = null
     flagInsertingSecondNumber = false
+}
+
+function PowerOn() {
+    ClearDisplay()
+    ClearVariables()
+    document.getElementById("visor").innerHTML = 0
+    powerOn = true
+}
+
+function PowerOff() {
+    ClearDisplay()
+    ClearVariables()
+    powerOn = false
 }

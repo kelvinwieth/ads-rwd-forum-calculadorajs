@@ -17,18 +17,17 @@
         </div>
 
         <div id="visor">
-            0
         </div>
         <div class="controles">
             <table class="botoes">
                 <tr>
-                    <td><button id="on_ce" onclick="ClearDisplay(), ClearVariables()">ON<br>CE</button></td>
+                    <td><button id="on_ce" onclick="PowerOn()">ON<br>CE</button></td>
                     <td class="acima_memoria">MRC<button class="memoria"></button></td>
                     <td class="acima_memoria">M-<button class="memoria"></button></td>
                     <td class="acima_memoria">M+<button class="memoria"></button></td>
                 </tr>
                 <tr>
-                    <td><button id="off">OFF</button></td>
+                    <td><button id="off" onclick="PowerOff()">OFF</button></td>
                     <td><button>√</button></td>
                     <td><button>%</button></td>
                     <td><button onclick="SendOperation('/')">÷</button></td>
