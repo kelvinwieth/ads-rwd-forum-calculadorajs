@@ -1,65 +1,62 @@
-var dotCounter = 0;
-var firstNumber = null;
-var secondNumber = null;
-var myOperation = null;
-var result = null;
+var firstNumber = null
+var secondNumber = null
+var operation = null
+var result = null
+var flagInsertingSecondNumber = false
 
-function PutNumberOnDisplay(digit) {
-    if (dotCounter > 0 && digit == ".") {
-        return
-    }
 
-    var displayedItemsQuantity = document.getElementById("visor").innerHTML.length
+function DisplayNumber(number) {
+    var displayedNumbers = document.getElementById("visor").innerHTML
+    if(displayedNumbers == "Err" || displayedNumbers == "mto grande =(") ClearDisplay()
 
-    if (displayedItemsQuantity > 10) {
-        return
-    }
+    if(displayedNumbers.length > 9) return
 
-    if (result != null) {
+    if(operation != null && !flagInsertingSecondNumber) {
         ClearDisplay()
-        result = null
+        flagInsertingSecondNumber = true
     }
-
-    document.getElementById("visor").innerHTML += digit;
-
-    if (digit == ".") {
-        dotCounter++
-    }
+    document.getElementById("visor").innerHTML += number
 }
+
 
 function ClearDisplay() {
-    document.getElementById("visor").innerHTML = "";
+    document.getElementById("visor").innerHTML = ""
 }
+
+
+function SendOperation(operation) {
+    firstNumber = document.getElementById("visor").innerHTML
+    this.operation = operation
+}
+
 
 function CalculateResult() {
     secondNumber = document.getElementById("visor").innerHTML
 
-    if (firstNumber == null || secondNumber == null || myOperation == null) {
-        return
-    }
-
     try {
-        result = eval(firstNumber.concat(myOperation, secondNumber))
-        ClearDisplay()
-        document.getElementById("visor").innerHTML = result;
-    } catch (error) {
-        ClearDisplay()
-        PutNumberOnDisplay("ERROR")
+        result = parseFloat(eval(firstNumber.concat(operation, secondNumber)))
+        if (result.toString().length > 9) {
+            if (result.toFixed(3).length < 10) {
+                result = result.toFixed(3)
+            } else {
+                result = "mto grande =("
+            }
+        }
     }
+    catch(error) {
+        result = "Err"
+        ClearVariables()
+    }
+
+    document.getElementById("visor").innerHTML = result
+    ClearVariables()
 }
 
-function SendOperation(operation) {
-    if (firstNumber == null && myOperation == null) {
-        firstNumber = document.getElementById("visor").innerHTML
-        myOperation = operation
-        ClearDisplay()
-    }
-}
 
 function ClearVariables() {
-    dotCounter = 0;
-    firstNumber = null;
-    secondNumber = null;
-    myOperation = null;
-    result = null;
+    firstNumber = null
+    secondNumber = null
+    operation = null
+    result = null
+    flagInsertingSecondNumber = false
 }

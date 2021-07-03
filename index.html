@@ -1,6 +1,7 @@
 <html>
 
 <head>
+    <meta charset="utf-8"/>
 </head>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,7 +17,7 @@
         </div>
 
         <div id="visor">
-            0123456789
+            0
         </div>
         <div class="controles">
             <table class="botoes">
@@ -33,26 +34,26 @@
                     <td><button onclick="SendOperation('/')">÷</button></td>
                 </tr>
                 <tr>
-                    <td><button onclick="PutNumberOnDisplay(7)">7</button></td>
-                    <td><button onclick="PutNumberOnDisplay(8)">8</button></td>
-                    <td><button onclick="PutNumberOnDisplay(9)">9</button></td>
+                    <td><button onclick="DisplayNumber(7)">7</button></td>
+                    <td><button onclick="DisplayNumber(8)">8</button></td>
+                    <td><button onclick="DisplayNumber(9)">9</button></td>
                     <td><button onclick="SendOperation('*')">x</button></td>
                 </tr>
                 <tr>
-                    <td><button onclick="PutNumberOnDisplay(4)">4</button></td>
-                    <td><button onclick="PutNumberOnDisplay(5)">5</button></td>
-                    <td><button onclick="PutNumberOnDisplay(6)">6</button></td>
+                    <td><button onclick="DisplayNumber(4)">4</button></td>
+                    <td><button onclick="DisplayNumber(5)">5</button></td>
+                    <td><button onclick="DisplayNumber(6)">6</button></td>
                     <td><button onclick="SendOperation('-')">-</button></td>
                 </tr>
                 <tr>
-                    <td><button onclick="PutNumberOnDisplay(1)">1</button></td>
-                    <td><button onclick="PutNumberOnDisplay(2)">2</button></td>
-                    <td><button onclick="PutNumberOnDisplay(3)">3</button></td>
+                    <td><button onclick="DisplayNumber(1)">1</button></td>
+                    <td><button onclick="DisplayNumber(2)">2</button></td>
+                    <td><button onclick="DisplayNumber(3)">3</button></td>
                     <td rowspan="2"><button id="soma" onclick="SendOperation('+')">+</button></td>
                 </tr>
                 <tr>
-                    <td><button onclick="PutNumberOnDisplay(0)">0</button></td>
-                    <td><button onclick="PutNumberOnDisplay('.')">.</button></td>
+                    <td><button onclick="DisplayNumber(0)">0</button></td>
+                    <td><button onclick="DisplayNumber('.')">.</button></td>
                     <td><button onclick="CalculateResult()">=</button></td>
                 </tr>
             </table>
